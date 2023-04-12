@@ -1,8 +1,15 @@
 .currencyMenu {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 2em 3em;
+
 	&_btn {
-		padding: 1em 1.5em;
+		padding: 0.9em;
+		margin: 0.5em;
+		background-color: #fff;
+		border: 0.2em solid blue;
+		border-radius: 45%;
+		width: 100px;
+		height: 50px;
 	}
 }

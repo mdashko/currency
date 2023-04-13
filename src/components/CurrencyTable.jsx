@@ -3,13 +3,15 @@ import { CurrencyRow } from "./CurrencyRow";
 import { CurrencyContext } from "../App";
 
 export const CurrencyTable = () => {
-	const { prices } = useContext(CurrencyContext);
+	const { pricesPairs } = useContext(CurrencyContext);
 
 	return (
 		<div className="currencyTable">
-			{Object.entries(prices).forEach(([name, price]) => (
-				<CurrencyRow name={name} price={price} />
-			))}
+			{pricesPairs.map((pair) => {
+				for (let key in pair) {
+					return <CurrencyRow name={key} price={pair[key]} />;
+				}
+			})}
 		</div>
 	);
 };

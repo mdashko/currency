@@ -1,6 +1,5 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 import "./scss/App.scss";
-import { CurrencyRow } from "./components/CurrencyRow";
 import { CurrencyMenu } from "./components/CurrencyMenu";
 import { CurrencyTable } from "./components/CurrencyTable";
 
@@ -16,10 +15,6 @@ function App() {
 			response.json().then((actualData) => setCurrencies(actualData))
 		);
 	};
-
-	useEffect(() => {
-		fetchCurrencies();
-	}, []);
 
 	const handleCurrencyButton = (currency) => {
 		let pairs = [];
@@ -42,31 +37,17 @@ function App() {
 
 	return (
 		<div className="App">
-			{/* <CurrencyContext.Provider
-				value={{ prices, currencies, fetchCurrencies, handleCurrencyButton }}
+			<CurrencyContext.Provider
+				value={{
+					pricesPairs,
+					currencies,
+					fetchCurrencies,
+					handleCurrencyButton,
+				}}
 			>
 				<CurrencyMenu />
 				<CurrencyTable />
-			</CurrencyContext.Provider> */}
-			<div className="currencyMenu">
-				{currencies.map((cur, index) => (
-					<button
-						className="currencyMenu_btn"
-						key={index}
-						onClick={() => handleCurrencyButton(cur)}
-					>
-						{cur}
-					</button>
-				))}
-			</div>
-			<div className="currencyTable">
-				{pricesPairs.map((pair) => {
-					for (let key in pair) {
-						console.log(`${key}: ${pair[key]}`);
-						return <CurrencyRow name={key} price={pair[key]} />;
-					}
-				})}
-			</div>
+			</CurrencyContext.Provider>
 		</div>
 	);
 }

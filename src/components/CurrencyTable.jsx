@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CurrencyRow } from "./CurrencyRow";
-import { CurrencyContext } from "../App";
+import { CurrencyContext } from "./CurrencyContext";
 
 export const CurrencyTable = () => {
 	const { pricesPairs } = useContext(CurrencyContext);

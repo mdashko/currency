@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { CurrencyContext } from "../App";
+import { CurrencyContext } from "./CurrencyContext";
 
 export const CurrencyMenu = () => {
 	const { currencies, fetchCurrencies, handleCurrencyButton } = useContext(CurrencyContext);
